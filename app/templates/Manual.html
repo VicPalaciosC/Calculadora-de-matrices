@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Gauss Jordan</title>
+    <!--Link al css, es necesario descargar el archivo css para que la página cargue con los archivos-->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styles3.css') }}">
+</head>
+</style>
+<body>
+    <div class="PRINCIPAL">
+        <div class="inicio">
+            <h1>Calculadora Gauss Jordan</h1>
+            <div class="encabezado">
+                <nav>
+                    <!--Navegación-->
+                    <a href="/">Inicio</a>
+                    <a href="DyD">Cargar Matriz</a>
+            
+                </nav>
+            </div>
+            <div class="main">
+                <!--Caja Principal-->
+                 <div class="infosec1">
+                    <h2>Introduce el numero de columnas y filas manualmente</h2>
+                    <div class="tabla-responsive">
+                    <!-- SE AGREGÓ EL ELEMENTO 'form' PARA PODER REALIZAR UNA CONEXIÓN MEDIANTE FLASK DE MANERA SENCILLA Y PODER LEER LOS DATOS
+                    INGRESADOS POR EL USUARIO Y TRABAJARLOS CON LAS INSTRUCCIONES DEL ARCHIVO 'implementación.py', QUE RECIBE LOS DATOS
+                    MEDIANTE EL METODO "POST"-->
+                    <form action="implementacion.py" method="POST" name="F1">
+                    <table id="matriz">
+                        <tr>
+                            <!--PARA FINES DE PRUEBAS, TODOS LOS ATRIBUTOS 'VALUE' TIENEN UN NÚMERITO POR DEFAULT, 
+                            PERO ESE NÚMERO CAMBIA AL QUE EL USUARIO INGRESE-->
+                            <td><input type="text" size="5" class = "entrada" name="entry" value="1/2"/></td>
+                            <td><input type="text" size="5" class = "entrada" name="entry" value="2/4"/></td>
+                            <td><input type="text" size="5" class = "entrada" name="entry" value="3/6"/></td>
+                        
+                        </tr>
+                        <tr>
+                            <td><input type="text" size="5" class = "entrada" name="entry" value="4"/></td>
+                            <td><input type="text" size="5" class = "entrada" name="entry" value="5"/></td>
+                            <td><input type="text" size="5" class = "entrada" name="entry" value="6"/></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" size="5" class = "entrada" name="entry" value="7"/></td>
+                            <td><input type="text" size="5" class = "entrada" name="entry" value="8"/></td>
+                            <td><input type="text" size="5" class = "entrada" name="entry" value="9"/></td> 
+                        </tr>
+                    </table>
+                    <!--ESTE BOTON DE AQUÍ SE AGREGÓ PARA PODER EJECUTAR EL ARCHIVO 'implementación.py' Y PODER OBTENER LOS VALORES
+                    INGRESADOS POR EL USUARIO MEDIANTE EL METODO 'POST'; Y GUARDARLOS PARA HACER EL GAUSS-JORDAN CON EL ARCHIVO
+                    'algoritmo.py' SE PUEDE EDITAR EL ESTILO SOLO PONIENDOLE LA CLASE 'class = "boton1" '-->
+                    <button type = "submit"> Validar Matriz </button>
+                    </form>
+                </div>
+                    <span>
+                
+                       <a class="boton1" href="#" onclick="agregarColumna()" > Agregar Col</a>
+                       <a class="boton1" href="#" onclick="agregarFila()"> Agregar fil</a>
+                       <a class="boton1" href="#" onclick="eliminarColumna()"> Eliminar col</a>
+                       <a class="boton1" href="#" onclick="eliminarFila()"> Elmininar fil</a>
+                      
+                     </span>
+                     <span class="calculos">
+                         <a class="boton1" href="#" onclick="calcular()"><input class = "boton1" type="submit" value="calcular"></a>
+                         <!--a class="boton1" href="#" onclick="calcular()">Calcular</a-->
+                         <a  class="boton1" href="#" onclick="borrarNumeros()">Borrar</a>
+                      </span>
+
+                      
+                        
+                    </div>
+                    <div class="infosec2">
+                        <h2>Matriz Resultado</h2>
+                            
+                        <section class="mresultante">
+                            <!--Aquí se tiene que mostrar la matriz resultado-->
+                            <textarea id="resultado"></textarea>
+                        </section>
+                        
+                            <span>
+                                <a class="boton1" href="#" onclick="finalizar()">Finalizar</a>
+                                <!--Este boton deberia de borrar todo, tanto la caja donde se introduce la matriz y la matriz resultante-->
+                            </span>
+                    
+                 </div>
+                
+            
+             </div>
+                                 
+    </div>
+<script src="{{ url_for('static',filename='js/manual.js') }}">
+        
+        
+     </script>
+
+</body>
+</html>
