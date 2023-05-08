@@ -1,3 +1,4 @@
+import cgi
 def gaussJ(a, m, n, arreglo):
     j = 0 
     i = 0
