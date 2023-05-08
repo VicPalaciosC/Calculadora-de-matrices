@@ -1,6 +1,6 @@
 from algoritmo import gaussJ 
 from fractions import Fraction
-
+import cgi
 
 archivo = open("archivo.txt", "r")
 lineas = archivo.readlines()
